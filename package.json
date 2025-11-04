@@ -1,14 +1,14 @@
 {
-    "name": "neemo",
-    "version": "2.2.0",
-    "description": "Neemo - SEO Digital & IT Agency React Next Template",
+    "name": "techsa-zone",
+    "version": "1.0.0",
+    "description": "Techsa Zone - SEO Digital & IT Agency React Next.js Website",
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start"
     },
-    "author": "EnvyTheme.com",
+    "author": "techsa-zone.com",
     "license": "ISC",
     "dependencies": {
         "animate.css": "^4.1.1",

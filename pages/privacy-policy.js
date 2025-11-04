@@ -13,6 +13,7 @@ const PrivacyPolicy = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Privacy Policy"
         breadcrumbUrl="/"
+        pageType="privacy"
       />
 
       <div className="ptb-100">

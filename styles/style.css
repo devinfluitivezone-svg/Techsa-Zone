@@ -3484,7 +3484,7 @@ Page Title Area CSS
   background-size: cover;
   padding-top: 150px;
   padding-bottom: 150px;
-  margin-top: 50px;
+  margin-top: 80px;
   position: relative;
 }
 
@@ -3533,11 +3533,11 @@ Page Title Area CSS
 }
 
 .page-title-area.page-privacy {
-  background-image: url(/images/page-banner-bg.jpg);
+  background-image: url(/images/privice-policy.png);
 }
 
 .page-title-area.page-terms {
-  background-image: url(/images/page-banner-bg.jpg);
+  background-image: url(/images/term-condition.png);
 }
 
 .page-title-content {

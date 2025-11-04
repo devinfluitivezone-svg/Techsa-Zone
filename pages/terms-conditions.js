@@ -13,6 +13,7 @@ const TermsConditions = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Terms & Conditions"
         breadcrumbUrl="/"
+        pageType="terms"
       />
 
       <div className="ptb-100">
