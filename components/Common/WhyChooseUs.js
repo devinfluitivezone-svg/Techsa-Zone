@@ -39,11 +39,7 @@ const WhyChooseUs = () => {
                   </p>
                 </div>
 
-                <div className="choose-btn">
-                  <Link href="/about-us" className="default-btn-one">
-                    Discover More
-                  </Link>
-                </div>
+                
               </div>
             </div>
 

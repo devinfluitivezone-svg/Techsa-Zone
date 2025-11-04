@@ -1954,9 +1954,15 @@ Tab Section CSS
 .tab {
     .tabs_item {
         display: none;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity, transform;
         
         &:first-child {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }
@@ -3726,6 +3732,7 @@ Subscribe Area CSS
 Page Title Area CSS
 =================================================*/
 .page-title-area {
+
     position: relative;
     background-image: url(/images/page-banner-bg.jpg);
     background-position: center center;
@@ -3733,6 +3740,7 @@ Page Title Area CSS
     padding-top: 150px;
     padding-bottom: 150px;
     position: relative;
+    
 }
 .page-title-area::before {
     content: '';
@@ -3742,7 +3750,52 @@ Page Title Area CSS
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .80;
+    opacity: 0.3;
+}
+
+/* Page-specific background images */
+.page-title-area.page-about {
+    background-image: url(/images/aboutusimage.png);
+}
+
+.page-title-area.page-services {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-contact {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-team {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-features {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-blog {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-projects {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-pricing {
+    background-image: url(/images/pricing-page.png);
+}
+
+.page-title-area.page-faq {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-privacy {
+    background-image: url(/images/page-banner-bg.jpg);
+}
+
+.page-title-area.page-terms {
+    background-image: url(/images/page-banner-bg.jpg);
 }
 .page-title-content {
     text-align: center;

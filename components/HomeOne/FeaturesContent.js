@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const FeaturesContent = () => {
+const FeaturesContent = ({ showButton = true }) => {
   return (
     <>
       <section className="features-section">
@@ -15,11 +15,13 @@ const FeaturesContent = () => {
                 Leverage our creative expertise and cutting-edge technology to elevate your brand. From stunning UI/UX design to seamless development solutions, we craft digital experiences that engage, inspire, and drive lasting growth.
                 </p>
 
-                <div className="features-btn">
-                  <Link href="/features" className="features-btn-one">
-                    More Details
-                  </Link>
-                </div>
+                {showButton && (
+                  <div className="features-btn">
+                    <Link href="/features" className="features-btn-one">
+                      More Details
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
 

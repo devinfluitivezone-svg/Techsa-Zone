@@ -17,9 +17,10 @@ const Features = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Features"
         breadcrumbUrl="/"
+        pageType="features"
       />
 
-      <FeaturesContent />
+      <FeaturesContent showButton={false} />
 
       <div className="pb-100">
         <TabsContent />

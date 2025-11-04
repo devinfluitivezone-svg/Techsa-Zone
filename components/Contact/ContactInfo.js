@@ -12,7 +12,7 @@ const ContactInfo = () => {
               </div>
               <div className="content">
                 <h4>Phone</h4>
-                <p>+923391252535</p>
+                <p>+92 3391252535</p>
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@ const ContactInfo = () => {
               <div className="content">
                 <h4>Location</h4>
                 <p>
-                Techsa Zone, 2nd Floor, Shahra-e-Faisal, Moria Khan Goth Shah Faisal Colony, Shah Faisal Town, 75050
+                Techsa Zone, 2nd Floor, Shahra-e-Faisal,Shah Faisal Town Karachi
                 </p>
               </div>
             </div>

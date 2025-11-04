@@ -2,21 +2,137 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 
 class TabsContent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentTabIndex: 0
+        };
+        this.tabs = ['tab1', 'tab2', 'tab3', 'tab4', 'tab5', 'tab6'];
+        this.intervalId = null;
+        this.isTransitioning = false;
+    }
+
+    componentDidMount() {
+        // Initialize first tab with proper styles
+        const firstTab = document.getElementById('tab1');
+        if (firstTab) {
+            firstTab.style.opacity = "1";
+            firstTab.style.transform = "translateY(0)";
+        }
+        
+        // Start auto-cycling every 3 seconds
+        this.startAutoCycle();
+    }
+
+    componentWillUnmount() {
+        // Clear interval when component unmounts
+        this.stopAutoCycle();
+    }
+
+    startAutoCycle = () => {
+        // Clear any existing interval
+        this.stopAutoCycle();
+        
+        // Start auto-cycle with interval
+        this.intervalId = setInterval(() => {
+            this.autoSwitchTab();
+        }, 3000);
+    }
+
+    stopAutoCycle = () => {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
+    }
+
+    autoSwitchTab = () => {
+        // Wait for any ongoing transitions to complete before switching
+        if (this.isTransitioning) {
+            return;
+        }
+        
+        this.isTransitioning = true;
+        const nextTabIndex = (this.state.currentTabIndex + 1) % this.tabs.length;
+        const tabName = this.tabs[nextTabIndex];
+        
+        // Find the corresponding li element
+        const tabLinks = document.querySelectorAll('.boosting-list-tab .tabs li');
+        if (tabLinks[nextTabIndex]) {
+            // Create a synthetic event-like object
+            const syntheticEvent = {
+                currentTarget: tabLinks[nextTabIndex],
+                isAutoSwitch: true
+            };
+            this.openTabSection(syntheticEvent, tabName);
+            
+            // Reset transition flag after transition completes (400ms + 100ms buffer)
+            setTimeout(() => {
+                this.isTransitioning = false;
+            }, 500);
+        } else {
+            this.isTransitioning = false;
+        }
+    }
 
     openTabSection = (evt, tabNmae) => {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabs_item");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
+        
+        // Use requestAnimationFrame for smoother animations
+        requestAnimationFrame(() => {
+            // Fade out all tabs smoothly
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.opacity = "0";
+                tabcontent[i].style.transform = "translateY(10px)";
+            }
 
-        tablinks = document.getElementsByTagName("li");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace("current", "");
-        }
+            tablinks = document.querySelectorAll('.boosting-list-tab .tabs li');
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("current", "").trim();
+            }
 
-        document.getElementById(tabNmae).style.display = "block";
-        evt.currentTarget.className += "current";
+            // After fade out, switch content and fade in
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    // Hide all tabs
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Show and fade in the target tab
+                    const targetTab = document.getElementById(tabNmae);
+                    if (targetTab) {
+                        targetTab.style.display = "block";
+                        // Trigger reflow for smooth transition
+                        targetTab.offsetHeight;
+                        
+                        // Use requestAnimationFrame for the fade-in
+                        requestAnimationFrame(() => {
+                            targetTab.style.opacity = "1";
+                            targetTab.style.transform = "translateY(0)";
+                        });
+                    }
+
+                    // Update active tab link
+                    if (evt && evt.currentTarget) {
+                        evt.currentTarget.className += " current";
+                    }
+
+                    // Update current tab index
+                    const tabIndex = this.tabs.indexOf(tabNmae);
+                    if (tabIndex !== -1) {
+                        this.setState({ currentTabIndex: tabIndex });
+                    }
+                });
+            }, 200); // Half of transition duration for smooth fade
+        });
+
+        // Reset auto-cycle only when user manually clicks (not on auto-switch)
+        if (evt && evt.currentTarget && !evt.isAutoSwitch) {
+            this.stopAutoCycle();
+            this.startAutoCycle();
+        }
     }
 
     render() {
@@ -92,7 +208,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>
@@ -135,7 +251,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>
@@ -180,7 +296,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>
@@ -223,7 +339,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>
@@ -266,7 +382,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>
@@ -309,7 +425,7 @@ class TabsContent extends Component {
                                         </div>
 
                                         <div className="tab-btn">
-                                            <Link href="/single-service" className="default-btn-one">
+                                            <Link href="/portfolio" className="default-btn-one">
                                                 Discover More
                                             </Link>
                                         </div>

@@ -21,7 +21,7 @@ const Footer = () => {
                 <ul className="footer-social">
                   <li>
                     <a
-                      href="https://www.linkedin.com/"
+                      href="https://www.linkedin.com/company/techsa-zone/"
                       target="_blank"
                       className="bg-3955bc"
                     >
@@ -30,7 +30,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="https://www.facebook.com/"
+                      href="https://www.facebook.com/people/Techsa-Zone/61581744131538/"
                       target="_blank"
                       className="bg-1da1f2"
                     >
@@ -48,7 +48,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="https://www.instagram.com/"
+                      href="https://www.instagram.com/techsazone/"
                       target="_blank"
                       className="bg-0273af"
                     >
@@ -105,7 +105,7 @@ const Footer = () => {
                 <div className="footer-info-contact">
                   <i className="flaticon-call-answer"></i>
                   <h3>Phone</h3>
-                  <span>+923391252535</span>
+                  <span>+92 3391252535</span>
                 </div>
 
                 <div className="footer-info-contact">
@@ -117,7 +117,7 @@ const Footer = () => {
                 <div className="footer-info-contact">
                   <i className="flaticon-placeholder-filled-point"></i>
                   <h3>Address</h3>
-                  <span>Techsa Zone, 2nd Floor, Shahra-e-Faisal, Moria Khan Goth Shah Faisal Colony, Shah Faisal Town, 75050</span>
+                  <span>Techsa Zone, 2nd Floor, Shahra-e-Faisal, Shah Faisal Town Karachi</span>
                 </div>
               </div>
             </div>

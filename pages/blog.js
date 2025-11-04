@@ -14,6 +14,7 @@ const Blog = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Blog"
         breadcrumbUrl="/"
+        pageType="blog"
       />
 
       <BlogCardContent />

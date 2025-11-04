@@ -100,7 +100,7 @@ const ContactForm = () => {
 
                 <ul className="social-links">
                   <li>
-                    <a href="https://www.facebook.com/" target="_blank">
+                    <a href="https://www.facebook.com/people/Techsa-Zone/61581744131538/" target="_blank">
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
@@ -110,20 +110,16 @@ const ContactForm = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/" target="_blank">
+                    <a href="https://www.instagram.com/techsazone/" target="_blank">
                       <i className="fab fa-instagram"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/" target="_blank">
+                    <a href="https://www.linkedin.com/company/techsa-zone/" target="_blank">
                       <i className="fab fa-linkedin"></i>
                     </a>
                   </li>
-                  <li>
-                    <a href="https://www.pinterest.com/" target="_blank">
-                      <i className="fab fa-pinterest"></i>
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>

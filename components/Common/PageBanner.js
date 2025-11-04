@@ -6,10 +6,11 @@ const PageBanner = ({
   breadcrumbTextOne,
   breadcrumbTextTwo,
   breadcrumbUrl,
+  pageType = "default",
 }) => {
   return (
     <>
-      <div className="page-title-area">
+      <div className={`page-title-area page-${pageType}`}>
         <div className="container">
           <div className="page-title-content">
             <h2>{pageTitle}</h2>

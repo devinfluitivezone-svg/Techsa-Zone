@@ -17,6 +17,7 @@ const Services = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Services"
         breadcrumbUrl="/"
+        pageType="services"
       />
 
       <ServicesContent />

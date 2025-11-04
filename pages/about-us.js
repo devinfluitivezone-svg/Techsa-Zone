@@ -21,25 +21,26 @@ const AboutUs = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="About Us"
         breadcrumbUrl="/"
+        pageType="about"
       />
 
       <AboutContent />
 
       <FeaturesArea />
 
-      <ServicesContent />
+      {/* <ServicesContent /> */}
 
-      <PricingContent />
+      {/* <PricingContent /> */}
 
       <ProjectsStyleTwo />
 
       <TeamCard />
 
-      <SubscribeStyleTwo />
+      {/* <SubscribeStyleTwo /> */}
 
-      <div className="ptb-100">
+      {/* <div className="ptb-100">
         <PartnerLogos />
-      </div>
+      </div> */}
 
       <Footer />
     </>

@@ -15,6 +15,7 @@ const Contact = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Contact Us"
         breadcrumbUrl="/"
+        pageType="contact"
       />
 
       <ContactForm />

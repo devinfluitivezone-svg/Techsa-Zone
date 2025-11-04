@@ -16,6 +16,7 @@ const Pricing = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Our Pricing Plans"
         breadcrumbUrl="/"
+        pageType="pricing"
       />
 
       <PricingContent />
