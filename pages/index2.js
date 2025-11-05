@@ -1,14 +1,13 @@
 import React from "react";
 import Navbar from "../components/Layouts/Navbar";
-import MainBanner from "../components/HomeTwo/MainBanner";
-import PartnerLogos from "../components/HomeTwo/PartnerLogos";
-import FeaturesArea from "../components/HomeTwo/FeaturesArea";
+import MainBanner from "../components/HomeOne/MainBanner";
+import PartnerLogos from "../components/Common/PartnerLogos";
 import AboutContent from "../components/HomeTwo/AboutContent";
-import WhyChooseUs from "../components/HomeTwo/WhyChooseUs";
+import WhyChooseUs from "../components/Common/WhyChooseUs";
 import ServicesContent from "../components/Common/ServicesContent";
 import PricingContent from "../components/PricingPlans/PricingContent";
 import ProjectsStyleTwo from "../components/Projects/ProjectsStyleTwo";
-import TestimonialSection from "../components/HomeTwo/TestimonialSection";
+import TestimonialSection from "../components/HomeOne/TestimonialSection";
 import FaqSection from "../components/Faq/FaqSection";
 import TeamCard from "../components/Common/TeamCard";
 import BlogCardSection from "../components/Common/BlogCardSection";
@@ -23,8 +22,6 @@ const Index2 = () => {
       <MainBanner />
 
       <PartnerLogos />
-
-      <FeaturesArea />
 
       <div className="pb-100">
         <AboutContent />

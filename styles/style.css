@@ -3540,6 +3540,10 @@ Page Title Area CSS
   background-image: url(/images/term-condition.png);
 }
 
+.page-title-area.page-single-blog {
+  background-image: url(/images/single-blog-page.png);
+}
+
 .page-title-content {
   text-align: center;
   position: relative;
@@ -5874,6 +5878,18 @@ Go Top CSS
   overflow: hidden;
 }
 
+.gallery-slider.mobile-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 550px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  padding: 40px 20px;
+}
+
 .gallery-slide {
   display: none;
 }
@@ -5882,10 +5898,53 @@ Go Top CSS
   display: block;
 }
 
+.mobile-gallery .gallery-slide {
+  display: none;
+  opacity: 0;
+  transform: translateX(50px) scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-gallery .gallery-slide.active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  position: relative;
+  z-index: 2;
+}
+
 .gallery-slide img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.mobile-gallery .gallery-slide img {
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.mobile-gallery .gallery-slide.active img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 .gallery-nav-btn {
@@ -5903,6 +5962,21 @@ Go Top CSS
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+}
+
+/* Enhanced navigation for mobile gallery slider */
+.mobile-gallery ~ .gallery-nav-btn {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+}
+
+.mobile-gallery ~ .gallery-nav-btn:hover {
+  background: #1177ae;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(17, 119, 174, 0.4);
 }
 
 .prev-btn {

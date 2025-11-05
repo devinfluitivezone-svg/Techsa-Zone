@@ -9,10 +9,7 @@ import TabsContent from "../components/HomeOne/TabsContent";
 import ProjectsStyleOne from "../components/Projects/ProjectsStyleOne";
 import TeamCard from "../components/Common/TeamCard";
 import TestimonialSection from "../components/HomeOne/TestimonialSection";
-import AnalysisFormContent from "../components/HomeOne/AnalysisFormContent";
 import BlogCardSection from "../components/Common/BlogCardSection";
-import PartnerLogos from "../components/HomeOne/PartnerLogos";
-import SubscribeStyleOne from "../components/Common/SubscribeStyleOne";
 import Footer from "../components/Layouts/Footer";
 
 const Index = () => {

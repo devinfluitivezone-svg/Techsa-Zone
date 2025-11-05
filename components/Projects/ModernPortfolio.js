@@ -130,7 +130,7 @@ const ModernPortfolio = () => {
             </div>
 
             <div className="modal-gallery">
-              <div className="gallery-slider">
+              <div className={`gallery-slider ${selectedProject.category === 'mobile' ? 'mobile-gallery' : ''}`}>
                 {selectedProject.images.map((image, index) => (
                   <div 
                     key={index} 

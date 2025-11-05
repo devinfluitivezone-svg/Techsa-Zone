@@ -62,6 +62,13 @@
   .neemo-nav .navbar .others-options .burger-menu {
     margin-left: 20px;
   }
+  .neemo-nav .navbar .collapse .others-options,
+  .neemo-nav .navbar .mean-menu .others-options {
+    display: none;
+  }
+  .neemo-nav .navbar .others-options .get-quote-btn {
+    display: none;
+  }
   .sidebar-modal .sidebar-modal-inner {
     width: 100%;
     padding-top: 60px;
@@ -309,6 +316,22 @@
   }
   .boosting-list-tab .tabs li.bg-c5ebf9 {
     background: unset;
+  }
+  .boosting-list-tab .tabs li.current,
+  .boosting-list-tab .tabs li:hover {
+    background: #1177ae !important;
+    color: #ffffff !important;
+    box-shadow: 0px 10px 40px 0px rgba(0, 0, 255, 0.22);
+  }
+  .boosting-list-tab .tabs li.current i,
+  .boosting-list-tab .tabs li:hover i {
+    color: #ffffff !important;
+  }
+  .mobile-gallery {
+    padding: 20px 15px;
+  }
+  .mobile-gallery .gallery-slide img {
+    max-height: 400px;
   }
   .boosting-list-tab .tab_content .tabs_item .content h2 {
     margin: 30px 0 10px 0;

@@ -14,6 +14,7 @@ const BlogById = ({ initialBlog }) => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Blog Details"
         breadcrumbUrl="/"
+        pageType="single-blog"
       />
       <SingleBlogContent initialBlog={initialBlog} />
       <Footer />
