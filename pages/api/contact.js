@@ -31,6 +31,32 @@ export default async (req, res) => {
   console.log("Contact form submission:", req.body);
   const { name, email, number, subject, text } = req.body;
 
+  // Validate required fields
+  if (!name || !email || !subject || !text) {
+    return res.status(400).json({ 
+      error: "Missing required fields",
+      message: "Please fill in all required fields: name, email, subject, and message."
+    });
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ 
+      error: "Invalid email format",
+      message: "Please enter a valid email address."
+    });
+  }
+
+  // Check if environment variables are set
+  if (!process.env.HOSTINGER_EMAIL || !process.env.HOSTINGER_EMAIL_PASSWORD) {
+    console.error("Missing email configuration in environment variables");
+    return res.status(500).json({ 
+      error: "Email service not configured",
+      message: "Server configuration error. Please contact the administrator."
+    });
+  }
+
   try {
     // Send email using Hostinger
     const mailOptions = {

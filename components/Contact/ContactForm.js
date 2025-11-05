@@ -49,11 +49,12 @@ const ContactForm = () => {
     setMessage("");
 
     try {
-      const url = `${baseUrl}/api/contact`;
+      // Use relative path for API calls - works better on Vercel
+      const url = '/api/contact';
       const { name, email, number, subject, text } = contact;
       const payload = { name, email, number, subject, text };
       const response = await axios.post(url, payload);
-      console.log(response);
+      console.log('Contact form response:', response);
       
       setContact(INITIAL_STATE);
       setIsSubmitting(false);
@@ -67,10 +68,21 @@ const ContactForm = () => {
         setMessage("");
       }, 5000);
     } catch (error) {
-      console.log(error);
+      console.error('Contact form error:', error);
       setIsSubmitting(false);
       setSubmitStatus("error");
-      setMessage("Oops! Something went wrong. Please try again or contact us directly.");
+      
+      // Provide more specific error messages
+      let errorMessage = "Oops! Something went wrong. Please try again or contact us directly.";
+      if (error.response) {
+        // Server responded with error
+        errorMessage = error.response.data?.error || error.response.data?.message || errorMessage;
+      } else if (error.request) {
+        // Request was made but no response
+        errorMessage = "Unable to connect to server. Please check your internet connection and try again.";
+      }
+      
+      setMessage(errorMessage);
       
       // Clear error message after 5 seconds
       setTimeout(() => {
