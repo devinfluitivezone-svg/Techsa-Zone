@@ -9,7 +9,13 @@ const Error = () => {
           <div className="d-table-cell">
             <div className="container">
               <div className="error-content">
-                <img src="/images/404.png" alt="error" />
+                <img 
+                  src="/images/404.png" 
+                  alt="404 page not found error" 
+                  width={400}
+                  height={400}
+                  loading="eager"
+                />
 
                 <h3>Page Not Found</h3>
                 <p>

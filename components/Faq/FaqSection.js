@@ -91,7 +91,13 @@ const FaqSection = () => {
 
             <div className="col-lg-6">
               <div className="faq-image">
-                <img src="/images/faq-image.png" alt="image" />
+                <img 
+                  src="/images/faq-image.png" 
+                  alt="Frequently asked questions about Techsa Zone services" 
+                  loading="lazy"
+                  width={600}
+                  height={500}
+                />
               </div>
             </div>
           </div>

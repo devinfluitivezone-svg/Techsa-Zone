@@ -17,7 +17,8 @@ const Index = () => {
     <>
       <Navbar />
 
-      <MainBanner />
+      <main id="main-content">
+        <MainBanner />
 
        <FeaturesContent />
 
@@ -39,6 +40,7 @@ const Index = () => {
       <TestimonialSection />
 
       <BlogCardSection />
+      </main>
 
       <Footer />  
     </>

@@ -28,12 +28,18 @@ const ProjectsStyleOne = () => {
             {projectImages.map((project, index) => (
               <div key={index} className="col-lg-4 col-md-6 col-sm-6">
                 <div className="single-project-box">
-                  <Link href="/portfolio">
-                    <img src={project.src} alt={project.title} />
+                  <Link href="/portfolio" aria-label={`View ${project.title} project details`}>
+                    <img 
+                      src={project.src} 
+                      alt={project.title} 
+                      loading="lazy"
+                      width={400}
+                      height={300}
+                    />
                   </Link>
                   <div className="project-hover-content">
                     <h3>
-                      <Link href="/portfolio">{project.title}</Link>
+                      <Link href="/portfolio" aria-label={`Navigate to ${project.title} project`}>{project.title}</Link>
                     </h3>
                   </div>
                 </div>

@@ -74,7 +74,13 @@ const AboutContent = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="about-image">
-                <img src="/images/about-image.png" alt="image" />
+                <img 
+                  src="/images/about-image.png" 
+                  alt="Techsa Zone team working on digital solutions" 
+                  loading="lazy"
+                  width={600}
+                  height={500}
+                />
               </div>
             </div>
 

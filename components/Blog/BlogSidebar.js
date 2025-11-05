@@ -29,8 +29,15 @@ const BlogSidebar = () => {
             .slice(0, 3)
             .map((post) => (
               <article className="item" key={post.id}>
-                <Link href={`/blog/${post.id}`} className="thumb">
-                  <img src={post.image} alt={post.title} style={{ width: 80, height: 60, objectFit: "cover" }} />
+                <Link href={`/blog/${post.id}`} className="thumb" aria-label={`Read blog post: ${post.title}`}>
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    width={80}
+                    height={60}
+                    loading="lazy"
+                    style={{ objectFit: "cover" }}
+                  />
                 </Link>
                 <div className="info">
                   <time>{new Date(post.date).toISOString().slice(0, 10)}</time>

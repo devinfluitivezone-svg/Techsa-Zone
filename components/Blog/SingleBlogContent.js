@@ -12,7 +12,13 @@ const SingleBlogContent = ({ initialBlog }) => {
             <div className="col-lg-8 col-md-12">
               <div className="blog-details-desc">
                 <div className="article-image">
-                  <img src={blog?.image || "/images/blog-details/single-blog.jpg"} alt={blog?.title || "image"} />
+                  <img 
+                    src={blog?.image || "/images/blog-details/single-blog.jpg"} 
+                    alt={blog?.title || "Blog article image"} 
+                    loading="lazy"
+                    width={800}
+                    height={450}
+                  />
                 </div>
 
                 {/* Article details content */}
@@ -50,7 +56,7 @@ const SingleBlogContent = ({ initialBlog }) => {
                       <i className="fas fa-bookmark"></i>
                     </span>
                     {blog?.tags?.map((t, idx) => (
-                      <Link key={t} href="/blog/">
+                      <Link key={t} href="/blog/" aria-label={`View blog posts tagged with ${t}`}>
                         {t}
                         {idx < (blog.tags.length - 1) ? ',' : ''}
                       </Link>
@@ -63,23 +69,23 @@ const SingleBlogContent = ({ initialBlog }) => {
                         <span>Share:</span>
                       </li>
                       <li>
-                        <a href="https://www.facebook.com/" target="_blank">
-                          <i className="fab fa-facebook-f"></i>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
+                          <i className="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://twitter.com/" target="_blank">
-                          <i className="fab fa-twitter"></i>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
+                          <i className="fab fa-twitter" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.linkedin.com/" target="_blank">
-                          <i className="fab fa-linkedin-in"></i>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+                          <i className="fab fa-linkedin-in" aria-hidden="true"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.instagram.com/" target="_blank">
-                          <i className="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Share on Instagram">
+                          <i className="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                       </li>
                     </ul>
@@ -90,15 +96,15 @@ const SingleBlogContent = ({ initialBlog }) => {
                 <div className="post-navigation">
                   <div className="navigation-links">
                     <div className="nav-previous">
-                      <Link href="#">
-                        <i className="fa fa-arrow-left mr-2"></i>
+                      <Link href="#" aria-label="Navigate to previous blog post">
+                        <i className="fa fa-arrow-left mr-2" aria-hidden="true"></i>
                         Prev Post
                       </Link>
                     </div>
                     <div className="nav-next">
-                      <Link href="#">
+                      <Link href="#" aria-label="Navigate to next blog post">
                         Next Post
-                        <i className="fa fa-arrow-right ml-2"></i>
+                        <i className="fa fa-arrow-right ml-2" aria-hidden="true"></i>
                       </Link>
                     </div>
                   </div>

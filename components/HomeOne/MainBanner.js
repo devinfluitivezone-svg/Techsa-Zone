@@ -109,7 +109,11 @@ const MainBanner = () => {
                     <img
                       src="/images/saas-image/main-image.png"
                       className="animate__animated animate__zoomIn animate__delay-0.5s"
-                      alt="main-image.png"
+                      alt="Techsa Zone digital solutions showcase"
+                      width={600}
+                      height={500}
+                      fetchPriority="high"
+                      loading="eager"
                     />
                   </div>
                 </div>
