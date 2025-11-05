@@ -17,15 +17,52 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {/* Primary Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Techsa Zone - SEO Digital & IT Agency React Next Template</title>
-        <meta name="description" content="Techsa Zone is a leading digital marketing agency specializing in SEO, social media marketing, and comprehensive online solutions. We help businesses achieve their digital goals through innovative strategies, cutting-edge technology, and proven expertise that delivers measurable results." />
-        <meta name="keywords" content="Techsa Zone, SEO, social media marketing, comprehensive online solutions, digital marketing agency, innovative strategies, cutting-edge technology, measurable results" />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
         <meta name="author" content="Techsa Zone" />
-        <meta name="robots" content="index, follow" />
+        <meta name="copyright" content="Techsa Zone" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         <meta name="google" content="notranslate" />
-        <meta name="google" content="notranslate" />
+        
+        {/* Title and Description */}
+        <title>Techsa Zone - SEO Digital Marketing & IT Solutions Agency</title>
+        <meta name="title" content="Techsa Zone - SEO Digital Marketing & IT Solutions Agency" />
+        <meta name="description" content="Techsa Zone is a leading digital marketing and IT solutions agency specializing in SEO, web development, mobile app development, digital marketing, UI/UX design, and software testing. We help businesses achieve digital growth through innovative strategies, cutting-edge technology, and data-driven solutions that deliver measurable results." />
+        
+        {/* Keywords */}
+        <meta name="keywords" content="Techsa Zone, SEO agency, digital marketing, web development, mobile app development, UI/UX design, graphic design, branding, software testing, IT solutions, digital transformation, search engine optimization, social media marketing, PPC advertising, content marketing, responsive web design, e-commerce development, React development, Next.js development, custom software development, Pakistan digital agency, digital marketing services, online marketing, website development, app development, brand identity design, user experience design, quality assurance testing" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.techsazone.com/" />
+        <meta property="og:title" content="Techsa Zone - SEO Digital Marketing & IT Solutions Agency" />
+        <meta property="og:description" content="Leading digital marketing and IT solutions agency specializing in SEO, web development, mobile apps, UI/UX design, and comprehensive digital marketing services. Transform your digital vision with creative excellence." />
+        <meta property="og:image" content="https://www.techsazone.com/images/og-image.jpg" />
+        <meta property="og:site_name" content="Techsa Zone" />
+        <meta property="og:locale" content="en_US" />
+        
+      
+        {/* Additional Meta Tags */}
+        <meta name="theme-color" content="#5e72e4" />
+        <meta name="msapplication-TileColor" content="#5e72e4" />
+        <meta name="application-name" content="Techsa Zone" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.techsazone.com/" />
+        
+        {/* Favicon and Icons */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="https://www.techsazone.com" />
       </Head>
 
       <Component {...pageProps} />
