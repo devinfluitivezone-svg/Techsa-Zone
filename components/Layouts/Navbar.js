@@ -108,9 +108,9 @@ const Navbar = () => {
 
                   {/* <li className="nav-item">
                     <Link
-                      href="/projects/"
+                      href="/portfolio"
                       className={`nav-link ${
-                        currentPath == "/projects/" && "active"
+                        currentPath == "/portfolio" && "active"
                       }`}
                     >
                       Projects <i className="fa-solid fa-plus"></i>
@@ -119,9 +119,9 @@ const Navbar = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/projects/"
+                          href="/portfolio"
                           className={`nav-link ${
-                            currentPath == "/projects/" && "active"
+                            currentPath == "/portfolio" && "active"
                           }`}
                         >
                           Projects

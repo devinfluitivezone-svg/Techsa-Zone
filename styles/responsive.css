@@ -102,35 +102,20 @@
     padding: 8px 20px;
     font-size: 14px;
   }
-  .shape-img1 {
-    display: none;
-  }
-  .shape-img2 {
-    display: none;
-  }
-  .shape-img3 {
-    display: none;
-  }
-  .shape-img4 {
-    display: none;
-  }
-  .shape-img5 {
-    display: none;
-  }
-  .shape-img6 {
-    display: none;
-  }
-  .shape-img7 {
-    display: none;
-  }
-  .shape-img8 {
-    display: none;
-  }
-  .shape-img9 {
-    display: none;
-  }
-  .shape-img10 {
-    display: none;
+  .shape-img1,
+  .shape-img2,
+  .shape-img3,
+  .shape-img4,
+  .shape-img5,
+  .shape-img6,
+  .shape-img7,
+  .shape-img8,
+  .shape-img9,
+  .shape-img10,
+  .shape-img11 {
+    display: block;
+    opacity: 0.6;
+    transform: scale(0.7);
   }
   .main-banner {
     height: 100%;

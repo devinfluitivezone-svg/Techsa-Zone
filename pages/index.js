@@ -38,15 +38,7 @@ const Index = () => {
 
       <TestimonialSection />
 
-      {/* <AnalysisFormContent /> */}
-
       <BlogCardSection />
-
-      {/* <div className="pb-100">
-        <PartnerLogos />
-      </div> */}
-
-      {/* <SubscribeStyleOne /> */}
 
       <Footer />  
     </>
