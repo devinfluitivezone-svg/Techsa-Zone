@@ -16,15 +16,14 @@ const Team = () => {
         breadcrumbTextOne="Home"
         breadcrumbTextTwo="Our Team Members"
         breadcrumbUrl="/"
+        pageType="team"
       />
 
       <TeamMemberContact />
 
-      <SubscribeStyleTwo />
+     
 
-      <div className="ptb-100">
-        <PartnerLogos />
-      </div>
+      
 
       <Footer />
     </>

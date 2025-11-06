@@ -3522,6 +3522,9 @@ Page Title Area CSS
   background-image: url(/images/blog-page.png);
 }
 
+.page-title-area.page-team {
+  background-image: url(/images/team-page.png);
+}
 
 
 .page-title-area.page-pricing {
