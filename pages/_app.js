@@ -29,6 +29,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="googlebot" content="index, follow" />
         <meta name="google" content="notranslate" />
         
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="MmVbKXmLIaFfViDV6jxoe6aUJMl_C5bjmYGHVaVjYzQ" />
+        
         {/* Title and Description */}
         <title>Techsa Zone - SEO Digital Marketing & IT Solutions Agency</title>
         <meta name="title" content="Techsa Zone - SEO Digital Marketing & IT Solutions Agency" />
