@@ -18,28 +18,42 @@ const Index = () => {
       <Navbar />
 
       <main id="main-content">
-        <MainBanner />
+        <div id="home">
+          <MainBanner />
+        </div>
 
-       <FeaturesContent />
+        <div id="features">
+          <FeaturesContent />
+        </div>
 
-      <div className="pb-100">
-        <AboutContent />
-      </div>
+        <div id="about" className="pb-100">
+          <AboutContent />
+        </div>
 
-      {/* <ServicesContent /> */}
-      <div className="pt-100">
-      <TabsContent />
-      </div>
-      <WhyChooseUs />
+        {/* <ServicesContent /> */}
+        <div id="services" className="pt-100">
+          <TabsContent />
+        </div>
+        
+        <div id="why-choose-us">
+          <WhyChooseUs />
+        </div>
 
+        <div id="projects">
+          <ProjectsStyleOne />
+        </div>
 
-      <ProjectsStyleOne />
+        <div id="team">
+          <TeamCard />
+        </div>
 
-      <TeamCard />
+        <div id="testimonials">
+          <TestimonialSection />
+        </div>
 
-      <TestimonialSection />
-
-      <BlogCardSection />
+        <div id="blog">
+          <BlogCardSection />
+        </div>
       </main>
 
       <Footer />  

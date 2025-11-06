@@ -5,12 +5,105 @@ import Link from "next/link";
 const Navbar = () => {
   // Add active class
   const [currentPath, setCurrentPath] = useState("");
+  const [activeSection, setActiveSection] = useState("");
   const router = useRouter();
   // console.log(router.asPath)
 
   useEffect(() => {
     setCurrentPath(router.asPath);
   }, [router]);
+
+  // Scroll-based active section detection (only on homepage)
+  useEffect(() => {
+    if (router.asPath !== "/") return;
+
+    // Map sections - null means no corresponding nav item (keep previous active)
+    const sections = [
+      { id: "home", navPath: "/", hasNavItem: true },
+      { id: "features", navPath: null, hasNavItem: false },
+      { id: "about", navPath: "/about-us/", hasNavItem: true },
+      { id: "services", navPath: "/services/", hasNavItem: true },
+      { id: "why-choose-us", navPath: null, hasNavItem: false },
+      { id: "projects", navPath: "/portfolio", hasNavItem: true },
+      { id: "team", navPath: null, hasNavItem: false },
+      { id: "testimonials", navPath: null, hasNavItem: false },
+      { id: "blog", navPath: "/blog/", hasNavItem: true },
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Offset for navbar height
+
+      // If at the top of the page, set home as active
+      if (window.scrollY < 100) {
+        setActiveSection("/");
+        return;
+      }
+
+      // Find the section currently in view
+      // Check sections from bottom to top to get the most recent section first
+      let activeNavPath = null;
+      let bestMatch = null;
+      let bestMatchDistance = Infinity;
+      
+      // Find the section whose center is closest to the viewport center
+      const viewportCenter = window.scrollY + (window.innerHeight / 2);
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i].id);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionCenter = sectionTop + (sectionHeight / 2);
+          const sectionBottom = sectionTop + sectionHeight;
+          
+          // Check if section is in viewport
+          if (window.scrollY < sectionBottom && window.scrollY + window.innerHeight > sectionTop) {
+            // Calculate distance from viewport center to section center
+            const distance = Math.abs(viewportCenter - sectionCenter);
+            
+            // Keep track of the closest section
+            if (distance < bestMatchDistance) {
+              bestMatchDistance = distance;
+              bestMatch = i;
+            }
+          }
+        }
+      }
+      
+      // If we found a best match, determine the active nav path
+      if (bestMatch !== null) {
+        if (sections[bestMatch].hasNavItem) {
+          // Section has nav item, use it
+          activeNavPath = sections[bestMatch].navPath;
+        } else {
+          // Section has no nav item, find the last valid nav path before this section
+          // Check previous sections (earlier in array = higher on page) to find the last one with a nav item
+          for (let j = bestMatch - 1; j >= 0; j--) {
+            if (sections[j].hasNavItem) {
+              activeNavPath = sections[j].navPath;
+              break;
+            }
+          }
+          // If no previous section found, use home as default
+          if (activeNavPath === null) {
+            activeNavPath = "/";
+          }
+        }
+      }
+      
+      // Only update if we found a section, otherwise keep current (sticky behavior)
+      if (activeNavPath !== null) {
+        setActiveSection(activeNavPath);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [router.asPath]);
 
   const [menu, setMenu] = React.useState(true);
   const toggleNavbar = () => {
@@ -77,7 +170,11 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       href="/"
-                      className={`nav-link ${currentPath == "/" && "active"}`}
+                      className={`nav-link ${
+                        router.asPath == "/" 
+                          ? (activeSection === "" || activeSection === "/" ? "active" : "")
+                          : (currentPath == "/" ? "active" : "")
+                      }`}
                     >
                       Home 
                     </Link>
@@ -87,7 +184,9 @@ const Navbar = () => {
                     <Link
                       href="/about-us/"
                       className={`nav-link ${
-                        currentPath == "/about-us/" && "active"
+                        router.asPath == "/" 
+                          ? (activeSection == "/about-us/" ? "active" : "")
+                          : (currentPath == "/about-us/" ? "active" : "")
                       }`}
                     >
                       About us
@@ -98,7 +197,9 @@ const Navbar = () => {
                     <Link
                       href="/services/"
                       className={`nav-link ${
-                        currentPath == "/services/" && "active"
+                        router.asPath == "/" 
+                          ? (activeSection == "/services/" ? "active" : "")
+                          : (currentPath == "/services/" ? "active" : "")
                       }`}
                     >
                       Services
@@ -106,57 +207,26 @@ const Navbar = () => {
 
                   </li>
 
-                  {/* <li className="nav-item">
+                  <li className="nav-item">
                     <Link
                       href="/portfolio"
                       className={`nav-link ${
-                        currentPath == "/portfolio" && "active"
+                        router.asPath == "/" 
+                          ? (activeSection == "/portfolio" ? "active" : "")
+                          : (currentPath == "/portfolio" ? "active" : "")
                       }`}
                     >
-                      Projects <i className="fa-solid fa-plus"></i>
+                      Portfolio
                     </Link>
-
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link
-                          href="/portfolio"
-                          className={`nav-link ${
-                            currentPath == "/portfolio" && "active"
-                          }`}
-                        >
-                          Projects
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/projects-two/"
-                          className={`nav-link ${
-                            currentPath == "/projects-two/" && "active"
-                          }`}
-                        >
-                          Projects Two
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/single-project/"
-                          className={`nav-link ${
-                            currentPath == "/single-project/" && "active"
-                          }`}
-                        >
-                          Project Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li> */}
+                  </li>
 
                   <li className="nav-item">
                     <Link
                       href="/blog/"
                       className={`nav-link ${
-                        currentPath == "/blog/" && "active"
+                        router.asPath == "/" 
+                          ? (activeSection == "/blog/" ? "active" : "")
+                          : (currentPath == "/blog/" ? "active" : "")
                       }`}
                     >
                       Blog 

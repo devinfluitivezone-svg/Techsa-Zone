@@ -32,7 +32,7 @@ const ContactInfo = () => {
           <div className="col-lg-4 col-md-12">
             <div className="contact-box">
               <div className="icon">
-                <i className="fa fa-map-marker"></i>
+                <i className="fas fa-map-marker-alt"></i>
               </div>
               <div className="content">
                 <h4>Location</h4>

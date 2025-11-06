@@ -46,6 +46,38 @@ class TabsContent extends Component {
         }
     }
 
+    handleMouseEnter = () => {
+        // Pause auto-cycling when user hovers over tabs
+        this.stopAutoCycle();
+    }
+
+    handleMouseLeave = () => {
+        // Resume auto-cycling when user leaves the tab area
+        this.startAutoCycle();
+    }
+
+    handleTabHover = (tabName) => {
+        // Stop auto-cycling when hovering over a tab card
+        this.stopAutoCycle();
+        
+        // Find the tab index
+        const tabIndex = this.tabs.indexOf(tabName);
+        if (tabIndex === -1) return;
+        
+        // Only switch if it's a different tab
+        if (this.state.currentTabIndex !== tabIndex) {
+            // Find the corresponding li element
+            const tabLinks = document.querySelectorAll('.boosting-list-tab .tabs li');
+            if (tabLinks[tabIndex]) {
+                const syntheticEvent = {
+                    currentTarget: tabLinks[tabIndex],
+                    isAutoSwitch: false
+                };
+                this.openTabSection(syntheticEvent, tabName);
+            }
+        }
+    }
+
     autoSwitchTab = () => {
         // Wait for any ongoing transitions to complete before switching
         if (this.isTransitioning) {
@@ -88,8 +120,9 @@ class TabsContent extends Component {
             }
 
             tablinks = document.querySelectorAll('.boosting-list-tab .tabs li');
+            // Remove "current" class from all tabs more reliably
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace("current", "").trim();
+                tablinks[i].classList.remove("current");
             }
 
             // After fade out, switch content and fade in
@@ -114,14 +147,17 @@ class TabsContent extends Component {
                         });
                     }
 
-                    // Update active tab link
-                    if (evt && evt.currentTarget) {
-                        evt.currentTarget.className += " current";
-                    }
-
-                    // Update current tab index
+                    // Update active tab link - find the correct tab by index
                     const tabIndex = this.tabs.indexOf(tabNmae);
-                    if (tabIndex !== -1) {
+                    if (tabIndex !== -1 && tablinks[tabIndex]) {
+                        // Remove current from all tabs again to be safe
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].classList.remove("current");
+                        }
+                        // Add current to the correct tab
+                        tablinks[tabIndex].classList.add("current");
+                        
+                        // Update current tab index
                         this.setState({ currentTabIndex: tabIndex });
                     }
                 });
@@ -144,33 +180,64 @@ class TabsContent extends Component {
                         <h3>Build. Market. Scale Your Digital Products</h3>
                     </div>
 
-                    <div className="tab boosting-list-tab">
+                    <div 
+                        className="tab boosting-list-tab"
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}
+                    >
                         {/* Tabs Nav */}
                         <ul className="tabs">
                             <li
                                 className="current"
+                                data-tab="tab1"
                                 onClick={(e) => this.openTabSection(e, 'tab1')}
+                                onMouseEnter={() => this.handleTabHover('tab1')}
                             >
                                 <i className="flaticon-analysis-2"></i>
                                 <span>Web Development</span>
                             </li>
-                            <li onClick={(e) => this.openTabSection(e, 'tab2')} className="bg-eff7e9">
+                            <li 
+                                data-tab="tab2"
+                                onClick={(e) => this.openTabSection(e, 'tab2')} 
+                                className="bg-eff7e9"
+                                onMouseEnter={() => this.handleTabHover('tab2')}
+                            >
                                 <i className="flaticon-hand"></i>
                                 <span>Mobile App Development</span>
                             </li>
-                            <li onClick={(e) => this.openTabSection(e, 'tab3')} className="bg-fff8f0">
+                            <li 
+                                data-tab="tab3"
+                                onClick={(e) => this.openTabSection(e, 'tab3')} 
+                                className="bg-fff8f0"
+                                onMouseEnter={() => this.handleTabHover('tab3')}
+                            >
                                 <i className="flaticon-digital-marketing"></i>
                                 <span>Digital Marketing</span>
                             </li>
-                            <li onClick={(e) => this.openTabSection(e, 'tab4')} className="bg-ecfaf7">
+                            <li 
+                                data-tab="tab4"
+                                onClick={(e) => this.openTabSection(e, 'tab4')} 
+                                className="bg-ecfaf7"
+                                onMouseEnter={() => this.handleTabHover('tab4')}
+                            >
                                 <i className="flaticon-email"></i>
                                 <span>Graphic Design & Branding</span>
                             </li>
-                            <li onClick={(e) => this.openTabSection(e, 'tab5')} className="bg-f2f0fb">
+                            <li 
+                                data-tab="tab5"
+                                onClick={(e) => this.openTabSection(e, 'tab5')} 
+                                className="bg-f2f0fb"
+                                onMouseEnter={() => this.handleTabHover('tab5')}
+                            >
                                 <i className="flaticon-network"></i>
                                 <span>UI/UX Design</span>
                             </li>
-                            <li onClick={(e) => this.openTabSection(e, 'tab6')} className="bg-c5ebf9">
+                            <li 
+                                data-tab="tab6"
+                                onClick={(e) => this.openTabSection(e, 'tab6')} 
+                                className="bg-c5ebf9"
+                                onMouseEnter={() => this.handleTabHover('tab6')}
+                            >
                                 <i className="flaticon-analysis-1"></i>
                                 <span>Software Testing & QA</span>
                             </li>

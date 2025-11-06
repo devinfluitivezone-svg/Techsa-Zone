@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         {/* Title and Description */}
         <title>Techsa Zone - SEO Digital Marketing & IT Solutions Agency</title>
         <meta name="title" content="Techsa Zone - SEO Digital Marketing & IT Solutions Agency" />
-        <meta name="description" content="Techsa Zone is a leading digital marketing and IT solutions agency specializing in SEO, web development, mobile app development, digital marketing, UI/UX design, and software testing. We help businesses achieve digital growth through innovative strategies, cutting-edge technology, and data-driven solutions that deliver measurable results." />
+        <meta name="description" content="Techsa Zone is a leading digital marketing agency specializing in SEO, social media marketing, and comprehensive online solutions. We help businesses achieve digital growth." />
         
         {/* Keywords */}
         <meta name="keywords" content="Techsa Zone, SEO agency, digital marketing, web development, mobile app development, UI/UX design, graphic design, branding, software testing, IT solutions, digital transformation, search engine optimization, social media marketing, PPC advertising, content marketing, responsive web design, e-commerce development, React development, Next.js development, custom software development, Pakistan digital agency, digital marketing services, online marketing, website development, app development, brand identity design, user experience design, quality assurance testing" />
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.techsazone.com/" />
         <meta property="og:title" content="Techsa Zone - SEO Digital Marketing & IT Solutions Agency" />
-        <meta property="og:description" content="Leading digital marketing and IT solutions agency specializing in SEO, web development, mobile apps, UI/UX design, and comprehensive digital marketing services. Transform your digital vision with creative excellence." />
+        <meta property="og:description" content="Techsa Zone is a leading digital marketing agency specializing in SEO, social media marketing, and comprehensive online solutions. We help businesses achieve digital growth." />
         <meta property="og:image" content="https://www.techsazone.com/images/og-image.jpg" />
         <meta property="og:site_name" content="Techsa Zone" />
         <meta property="og:locale" content="en_US" />
@@ -63,6 +63,65 @@ function MyApp({ Component, pageProps }) {
         
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://www.techsazone.com" />
+        
+        {/* Navigation Links for Search Engines */}
+        <link rel="alternate" href="https://www.techsazone.com/" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/about-us/" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/services/" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/portfolio" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/blog/" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/pricing/" hreflang="en" />
+        <link rel="alternate" href="https://www.techsazone.com/contact/" hreflang="en" />
+        
+        {/* Site Navigation Meta */}
+        <meta name="navigation" content="Home, About us, Services, Portfolio, Blog, Pricing, Contact" />
+        <meta name="site-structure" content="Home: /, About us: /about-us/, Services: /services/, Portfolio: /portfolio, Blog: /blog/, Pricing: /pricing/, Contact: /contact/" />
+        
+        {/* Structured Data for Sitelinks */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Techsa Zone",
+              "url": "https://www.techsazone.com",
+              "description": "Techsa Zone is a leading digital marketing agency specializing in SEO, social media marketing, and comprehensive online solutions.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.techsazone.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Techsa Zone",
+              "url": "https://www.techsazone.com",
+              "logo": "https://www.techsazone.com/images/Logo-01.png",
+              "description": "Techsa Zone is a leading digital marketing agency specializing in SEO, social media marketing, and comprehensive online solutions.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2nd Floor, Shahra-e-Faisal",
+                "addressLocality": "Shah Faisal Town",
+                "addressRegion": "Karachi",
+                "addressCountry": "PK"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+92-3391252535",
+                "contactType": "Customer Service",
+                "email": "info@techsazone.com"
+              }
+            })
+          }}
+        />
       </Head>
 
       <Component {...pageProps} />

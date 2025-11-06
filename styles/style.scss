@@ -357,8 +357,12 @@ p {
                         left: 20px;
                         right: 20px;
                     }
+                    transition: all 0.3s ease;
+                    border-bottom: 2px solid transparent;
                     &:hover, &:focus, &.active {
                         color: $main-color;
+                        border-bottom: 2px solid $main-color;
+                        padding-bottom: 5px;
                     }
                     i {
                         font-size: 10px;

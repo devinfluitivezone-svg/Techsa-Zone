@@ -318,6 +318,16 @@
   .mobile-gallery .gallery-slide img {
     max-height: 400px;
   }
+  /* Web application images - consistent sizing on mobile */
+  .gallery-slider:not(.mobile-gallery) {
+    min-height: 400px;
+  }
+  .gallery-slider:not(.mobile-gallery) .gallery-slide {
+    height: 400px;
+  }
+  .gallery-slider:not(.mobile-gallery) .gallery-slide img {
+    max-height: 400px;
+  }
   .boosting-list-tab .tab_content .tabs_item .content h2 {
     margin: 30px 0 10px 0;
   }
