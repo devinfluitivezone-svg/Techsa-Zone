@@ -13,8 +13,11 @@ class MyDocument extends Document {
           />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          {/* Favicon - SVG prioritized for modern browsers */}
           <link rel="icon" type="image/svg+xml" href="/Techszone Favicon.svg" />
-          <link rel="icon" type="image/png" href="/images/favicon.png" />
+          <link rel="alternate icon" type="image/png" href="/images/favicon.png" />
+          <link rel="shortcut icon" href="/Techszone Favicon.svg" />
+          <link rel="manifest" href="/site.webmanifest" />
         </Head>
         <body>
           <Main />

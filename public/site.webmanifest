@@ -1,0 +1,29 @@
+{
+  "name": "Techsa Zone",
+  "short_name": "Techsa Zone",
+  "description": "Techsa Zone - SEO Digital Marketing & IT Solutions Agency",
+  "icons": [
+    {
+      "src": "/Techszone Favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1177ae",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
+
