@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/Layouts/Navbar";
 import MainBanner from "../components/HomeOne/MainBanner";
 import FeaturesContent from "../components/HomeOne/FeaturesContent";
@@ -56,7 +57,8 @@ const Index = () => {
         </div>
       </main>
 
-      <Footer />  
+      <Footer />
+      <Analytics />
     </>
   );
 };
